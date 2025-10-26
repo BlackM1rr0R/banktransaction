@@ -1,9 +1,7 @@
 package org.example.bankaccount.module;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import org.example.bankaccount.enums.Status;
 
 @Entity
 public class Account {
@@ -15,6 +13,8 @@ public class Account {
     private String lastName;
     private Double balance;
     private String password;
+    @Enumerated(EnumType.STRING)
+    private Status status;
 
 
 
@@ -23,11 +23,13 @@ public class Account {
 
 
 
+    public Status getStatus() {
+        return status;
+    }
 
-
-
-
-
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 
     public Long getId() {
         return id;

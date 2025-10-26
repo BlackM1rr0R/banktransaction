@@ -113,4 +113,13 @@ public class AccountService {
                 .orElseThrow(() -> new RuntimeException("Account not found"));
         accountRepository.delete(account);
     }
+
+    public Account getControlAccount(Long id) {
+        return accountRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND,"Account not found"));
+    }
+
+    public AccountDTO createAccount(AccountDTO accountDTO) {
+        return mapper.toDto(accountRepository.save(mapper.toEntity(accountDTO)));
+    }
 }

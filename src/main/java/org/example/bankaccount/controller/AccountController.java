@@ -2,6 +2,7 @@ package org.example.bankaccount.controller;
 
 import org.example.bankaccount.dao.AccountDTO;
 
+import org.example.bankaccount.module.Account;
 import org.example.bankaccount.service.AccountService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,10 @@ public class AccountController {
     public AccountController(AccountService accountService) {
         this.accountService = accountService;
     }
-
+    @PostMapping("/create")
+    public ResponseEntity<AccountDTO> createAccount(@RequestBody AccountDTO accountDTO) {
+        return ResponseEntity.ok(accountService.createAccount(accountDTO));
+    }
     @GetMapping("/all")
     public List<AccountDTO> getAllAccounts() {
         return accountService.getAllAccounts();
@@ -57,5 +61,12 @@ public class AccountController {
     public ResponseEntity<Void> deleteAccount(@RequestParam String accountNumber) {
         accountService.deleteAccount(accountNumber);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/control/{id}")
+    public ResponseEntity<Account> getControlAccount(@PathVariable Long id) {
+        Account account=accountService.getControlAccount(id);
+        return ResponseEntity.ok(account);
+
     }
 }

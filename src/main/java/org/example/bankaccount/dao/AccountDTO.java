@@ -7,6 +7,7 @@ public class AccountDTO {
     private Double balance;
     private String password;
 
+
     public String getAccountNumber() {
         return accountNumber;
     }
