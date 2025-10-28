@@ -1,52 +1,48 @@
-Book Rental API
+# 📚 Book Rental API
 
-This project is a simple book rental management system API built with Spring Boot.
-It uses REST API, DTO + Mapper, Transactional operations, and Spring Data JPA.
+![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=springboot)
+![MySQL](https://img.shields.io/badge/MySQL-database-blue?logo=mysql)
+![Maven](https://img.shields.io/badge/Maven-build-red?logo=apachemaven)
+![Postman](https://img.shields.io/badge/Postman-testing-orange?logo=postman)
 
-Technologies
+Welcome to **Book Rental API**!  
+A simple and clean Spring Boot project to manage book rentals. 🚀
 
-Java 17
+---
 
-Spring Boot 3.x
+## 🌟 Features
 
-Spring Data JPA
+### 📖 Book Operations
+- Add a book  
+- Update book information  
+- Delete a book  
+- List all available books  
 
-MySQL (or any relational database)
+### 🏷️ Rental Operations
+- Rent a book  
+- Return a book  
+- View all rentals of a user  
 
-MapStruct (for Entity ↔ DTO mapping)
+---
 
-Maven
+## 🔗 REST API Endpoints
 
-Postman (for API testing)
+### **Books**
 
-Features
-Book Operations:
+| Method | Endpoint      | Parameters | Description                |
+|--------|---------------|------------|----------------------------|
+| GET    | `/book`       | -          | List all available books   |
+| POST   | `/book`       | JSON Body  | Add a new book             |
+| PUT    | `/book/{id}`  | JSON Body  | Update an existing book    |
+| DELETE | `/book/{id}`  | -          | Delete a book by ID        |
 
-Add a book
+### **Rentals**
 
-Update book information
+| Method | Endpoint               | Parameters           | Description                        |
+|--------|------------------------|--------------------|------------------------------------|
+| POST   | `/rental`              | userId, bookId      | Rent a book                        |
+| PUT    | `/rental/{id}/return`  | -                  | Return a rented book               |
+| GET    | `/rental/user/{userId}`| -                  | Get all rentals of a user          |
 
-Delete a book
-
-List all available books
-
-Rental Operations:
-
-Rent a book
-
-Return a book
-
-List all rentals of a user
-
-REST API Endpoints
-Book Endpoints:
-Method	Endpoint	Parameters	Description
-GET	/book	-	Retrieves all available books
-POST	/book	Book JSON	Adds a new book
-PUT	/book/{id}	Book JSON	Updates an existing book
-DELETE	/book/{id}	-	Deletes a book by ID
-Rental Endpoints:
-Method	Endpoint	Parameters	Description
-POST	/rental	userId, bookId	Rent a book
-PUT	/rental/{id}/return	-	Return a rented book
-GET	/rental/user/{userId}	-	Get all rentals of a specific user
+---
