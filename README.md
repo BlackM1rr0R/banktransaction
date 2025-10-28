@@ -1,42 +1,52 @@
-# Mini Bank API
+Book Rental API
 
-This project is a simple **bank account management system (Mini Bank) API** built with **Spring Boot**.  
-It uses **REST API**, **DTO + Mapper**, **Transactional operations**, and **Spring Data JPA**.
+This project is a simple book rental management system API built with Spring Boot.
+It uses REST API, DTO + Mapper, Transactional operations, and Spring Data JPA.
 
----
+Technologies
 
-## Technologies
+Java 17
 
-- Java 17
-- Spring Boot 3.x
-- Spring Data JPA
-- MySQL (or any relational database)
-- MapStruct (for Entity ↔ DTO mapping)
-- Maven
-- Postman (for API testing)
+Spring Boot 3.x
 
----
+Spring Data JPA
 
-## Features
+MySQL (or any relational database)
 
-**Account Operations:**
-   - Create an account
-   - Delete an account
-   - Check account balance (Read)
-   - Deposit money into an account
-   - Withdraw money from an account
-   - Transfer money between accounts
+MapStruct (for Entity ↔ DTO mapping)
 
-**REST API Endpoints:**
+Maven
 
-| Method | Endpoint | Parameters | Description |
-|--------|----------|------------|-------------|
-| GET | `/accounts/all` | - | Retrieves all accounts |
-| GET | `/accounts/{id}` | PathVariable `id` | Retrieves account by ID |
-| POST | `/accounts/add/money` | `accountNumber`, `money` | Adds money to an account |
-| POST | `/accounts/withdraw/money` | `accountNumber`, `money` | Withdraws money from an account |
-| POST | `/accounts/transfer/money` | `fromAccountNumber`, `toAccountNumber`, `money` | Transfers money between accounts |
-| GET | `/accounts/balance` | `accountNumber` | Retrieves account balance |
-| DELETE | `/accounts` | `accountNumber` | Deletes an account |
+Postman (for API testing)
 
----
+Features
+Book Operations:
+
+Add a book
+
+Update book information
+
+Delete a book
+
+List all available books
+
+Rental Operations:
+
+Rent a book
+
+Return a book
+
+List all rentals of a user
+
+REST API Endpoints
+Book Endpoints:
+Method	Endpoint	Parameters	Description
+GET	/book	-	Retrieves all available books
+POST	/book	Book JSON	Adds a new book
+PUT	/book/{id}	Book JSON	Updates an existing book
+DELETE	/book/{id}	-	Deletes a book by ID
+Rental Endpoints:
+Method	Endpoint	Parameters	Description
+POST	/rental	userId, bookId	Rent a book
+PUT	/rental/{id}/return	-	Return a rented book
+GET	/rental/user/{userId}	-	Get all rentals of a specific user
