@@ -1,48 +1,42 @@
-# 📚 Book Rental API
+# Mini Bank API
 
-![Java](https://img.shields.io/badge/Java-17-blue?logo=java)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?logo=springboot)
-![MySQL](https://img.shields.io/badge/MySQL-database-blue?logo=mysql)
-![Maven](https://img.shields.io/badge/Maven-build-red?logo=apachemaven)
-![Postman](https://img.shields.io/badge/Postman-testing-orange?logo=postman)
-
-Welcome to **Book Rental API**!  
-A simple and clean Spring Boot project to manage book rentals. 🚀
+This project is a simple **bank account management system (Mini Bank) API** built with **Spring Boot**.  
+It uses **REST API**, **DTO + Mapper**, **Transactional operations**, and **Spring Data JPA**.
 
 ---
 
-## 🌟 Features
+## Technologies
 
-### 📖 Book Operations
-- Add a book  
-- Update book information  
-- Delete a book  
-- List all available books  
-
-### 🏷️ Rental Operations
-- Rent a book  
-- Return a book  
-- View all rentals of a user  
+- Java 17
+- Spring Boot 3.x
+- Spring Data JPA
+- MySQL (database)
+- MapStruct (for Entity ↔ DTO mapping)
+- Maven
+- Postman (for API testing)
 
 ---
 
-## 🔗 REST API Endpoints
+## Features
 
-### **Books**
+**Account Operations:**
+   - Create an account
+   - Delete an account
+   - Check account balance (Read)
+   - Deposit money into an account
+   - Withdraw money from an account
+   - Transfer money between accounts
 
-| Method | Endpoint      | Parameters | Description                |
-|--------|---------------|------------|----------------------------|
-| GET    | `/book`       | -          | List all available books   |
-| POST   | `/book`       | JSON Body  | Add a new book             |
-| PUT    | `/book/{id}`  | JSON Body  | Update an existing book    |
-| DELETE | `/book/{id}`  | -          | Delete a book by ID        |
+**REST API Endpoints:**
 
-### **Rentals**
-
-| Method | Endpoint               | Parameters           | Description                        |
-|--------|------------------------|--------------------|------------------------------------|
-| POST   | `/rental`              | userId, bookId      | Rent a book                        |
-| PUT    | `/rental/{id}/return`  | -                  | Return a rented book               |
-| GET    | `/rental/user/{userId}`| -                  | Get all rentals of a user          |
+| Method | Endpoint | Parameters | Description |
+|--------|----------|------------|-------------|
+| GET | `/accounts/all` | - | Retrieves all accounts |
+| GET | `/accounts/{id}` | PathVariable `id` | Retrieves account by ID |
+| POST | `/accounts/add/money` | `accountNumber`, `money` | Adds money to an account |
+| POST | `/accounts/withdraw/money` | `accountNumber`, `money` | Withdraws money from an account |
+| POST | `/accounts/transfer/money` | `fromAccountNumber`, `toAccountNumber`, `money` | Transfers money between accounts |
+| GET | `/accounts/balance` | `accountNumber` | Retrieves account balance |
+| DELETE | `/accounts` | `accountNumber` | Deletes an account |
 
 ---
